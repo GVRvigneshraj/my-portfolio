@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GVR | Vignesh Raj — Full Stack Developer</title>
+  <meta name="description" content="Vignesh Raj (GVR) — Full Stack Developer specializing in ASP.NET Core, Angular, Java Spring Boot.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="night" data-bg="stars">
+
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" type="button" aria-label="Scroll to top">
+    <span class="arrow-icon"><span class="iconify" data-icon="mdi:arrow-up"></span></span>
+  </button>
+
+  <!-- Intro -->
+  <div class="intro" id="intro-overlay">
+    <div class="intro-title">
+      <span class="intro-letter intro-g">G</span>
+      <span class="intro-letter intro-v">V</span>
+      <span class="intro-letter intro-r">R</span>
+    </div>
+    <div class="intro-subtitle">Full Stack Developer</div>
+  </div>
+
+  <!-- Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Settings Button & Panel -->
+  <button class="settings-btn" id="settings-btn" type="button"><span class="iconify" data-icon="mdi:cog"></span></button>
+  <div class="settings-panel" id="settings-panel">
+    <div class="settings-section">
+      <div class="settings-section-title"><span class="iconify" data-icon="mdi:palette-outline"></span> Color Theme</div>
+      <div class="settings-colors">
+        <div class="settings-color settings-color-night active" data-theme="night"></div>
+        <div class="settings-color settings-color-forest" data-theme="forest"></div>
+        <div class="settings-color settings-color-cloud" data-theme="cloud"></div>
+        <div class="settings-color settings-color-sage" data-theme="sage"></div>
+      </div>
+      <div class="settings-color-labels"><span>Night</span><span>Forest</span><span>Cloud</span><span>Sage</span></div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title"><span class="iconify" data-icon="mdi:auto-fix"></span> Background</div>
+      <div class="settings-bg-options">
+        <div class="settings-bg-opt active" data-bg="stars"><span class="bg-icon"><span class="iconify" data-icon="mdi:star-four-points"></span></span><span class="bg-label">Stars</span></div>
+        <div class="settings-bg-opt" data-bg="thunder"><span class="bg-icon"><span class="iconify" data-icon="mdi:flash"></span></span><span class="bg-label">Thunder</span></div>
+        <div class="settings-bg-opt" data-bg="bubbles"><span class="bg-icon"><span class="iconify" data-icon="mdi:circle-outline"></span></span><span class="bg-label">Bubbles</span></div>
+        <div class="settings-bg-opt" data-bg="3dlines"><span class="bg-icon"><span class="iconify" data-icon="mdi:vector-polyline"></span></span><span class="bg-label">3D Lines</span></div>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-section-title"><span class="iconify" data-icon="mdi:format-font"></span> Font</div>
+      <div class="settings-font-options">
+        <button class="settings-font-btn active" data-font="'Inter', sans-serif" type="button">Inter</button>
+        <button class="settings-font-btn" data-font="'Orbitron', sans-serif" type="button">Orbitron</button>
+        <button class="settings-font-btn" data-font="'Playfair Display', serif" type="button">Serif</button>
+        <button class="settings-font-btn" data-font="'Fira Code', monospace" type="button">Mono</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">G<span>VR</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <div class="mobile-sidebar" id="mobile-sidebar">
+    <div class="sidebar-header">
+      <div class="nav-logo">G<span>VR</span></div>
+      <button class="sidebar-close" id="sidebar-close" type="button"><span class="iconify" data-icon="mdi:close"></span></button>
+    </div>
+    <div class="sidebar-nav">
+      <a href="#home"><span class="iconify" data-icon="mdi:home-outline"></span> Home</a>
+      <a href="#about"><span class="iconify" data-icon="mdi:account-outline"></span> About</a>
+      <a href="#skills"><span class="iconify" data-icon="mdi:lightning-bolt-outline"></span> Skills</a>
+      <a href="#projects"><span class="iconify" data-icon="mdi:rocket-launch-outline"></span> Projects</a>
+      <a href="#education"><span class="iconify" data-icon="mdi:school-outline"></span> Education</a>
+      <a href="#contact"><span class="iconify" data-icon="mdi:email-outline"></span> Contact</a>
+    </div>
+  </div>
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="section-container">
+      <div class="home-wrapper">
+        <div class="home-content">
+          <p class="home-greeting reveal from-left">Hello, I'm</p>
+          <h1 class="home-name reveal from-left delay-1">Vignesh <span class="accent">Raj</span></h1>
+          <p class="home-role reveal from-left delay-2">Full Stack Developer</p>
+          <p class="home-tech reveal from-left delay-3">ASP.NET Core | Angular | Java Spring Boot</p>
+          <p class="home-desc reveal from-left delay-4">Passionate full stack developer specializing in scalable web applications, REST APIs, Angular front-end development, and enterprise software solutions.</p>
+          <div class="home-buttons reveal from-bottom delay-5">
+            <a href="#projects" class="btn btn-primary"><span class="iconify" data-icon="mdi:rocket-launch-outline"></span> View Projects</a>
+            <a href="#" class="btn btn-glass" id="resume-btn"><span class="iconify" data-icon="mdi:download"></span> Download Resume</a>
+            <a href="#contact" class="btn btn-glass"><span class="iconify" data-icon="mdi:email-outline"></span> Contact Me</a>
+          </div>
+        </div>
+        <div class="home-image-wrapper reveal scale-in delay-3">
+          <div style="position:relative">
+            <div class="home-image-glow"></div>
+            <div class="home-image-card">
+              <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Vignesh Raj" loading="eager">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-container">
+      <div class="reveal from-left">
+        <p class="section-label"><span class="iconify" data-icon="mdi:account-outline"></span> About Me</p>
+        <h2 class="section-title">Crafting Digital <span class="accent">Experiences</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal from-left delay-1">
+          <p>I am a Full Stack Developer with experience in ASP.NET Core, Angular, Java Spring Boot, MySQL, and REST API development. I enjoy creating responsive applications, solving real-world problems, and continuously improving my technical skills.</p>
+          <p>My approach combines clean architecture principles with modern UI/UX practices to deliver software that is both robust and user-friendly.</p>
+        </div>
+        <div class="about-cards">
+          <div class="glass about-card reveal from-right delay-1"><div class="card-icon"><span class="iconify" data-icon="mdi:briefcase-outline"></span></div><div><h4>Experience</h4><p>1+ year building enterprise-grade applications</p></div></div>
+          <div class="glass about-card reveal from-right delay-2"><div class="card-icon"><span class="iconify" data-icon="mdi:folder-outline"></span></div><div><h4>Projects</h4><p>4+ major projects including RFID, fintech, e-commerce</p></div></div>
+          <div class="glass about-card reveal from-right delay-3"><div class="card-icon"><span class="iconify" data-icon="mdi:code-tags"></span></div><div><h4>Technologies</h4><p>ASP.NET Core, Angular, Spring Boot, MySQL, REST APIs</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="section-container">
+      <div class="reveal from-left">
+        <p class="section-label"><span class="iconify" data-icon="mdi:lightning-bolt-outline"></span> Skills</p>
+        <h2 class="section-title">Technical <span class="accent">Arsenal</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="glass skill-category reveal from-bottom delay-1"><div class="skill-category-title"><span class="iconify" data-icon="mdi:monitor-dashboard"></span> Frontend</div><div class="skill-item"><div class="skill-item-header"><span>Angular</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>HTML</span><span>95%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>CSS</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>JavaScript</span><span>85%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>TypeScript</span><span>82%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div></div></div>
+        <div class="glass skill-category reveal from-bottom delay-2"><div class="skill-category-title"><span class="iconify" data-icon="mdi:server"></span> Backend</div><div class="skill-item"><div class="skill-item-header"><span>ASP.NET Core</span><span>92%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>C#</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>Java Spring Boot</span><span>78%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="78"></div></div></div></div>
+        <div class="glass skill-category reveal from-bottom delay-3"><div class="skill-category-title"><span class="iconify" data-icon="mdi:database-outline"></span> Database</div><div class="skill-item"><div class="skill-item-header"><span>MySQL</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div></div>
+        <div class="glass skill-category reveal from-bottom delay-4"><div class="skill-category-title"><span class="iconify" data-icon="mdi:wrench-outline"></span> Tools</div><div class="skill-item"><div class="skill-item-header"><span>Git</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>GitHub</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>Postman</span><span>85%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>Visual Studio</span><span>92%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div></div><div class="skill-item"><div class="skill-item-header"><span>VS Code</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="section-container">
+      <div class="reveal from-left">
+        <p class="section-label"><span class="iconify" data-icon="mdi:rocket-launch-outline"></span> Projects</p>
+        <h2 class="section-title">Featured <span class="accent">Work</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="glass project-card reveal from-bottom delay-1"><div class="project-image"><img src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Library" loading="lazy"></div><div class="project-content"><h3>Advanced Library Management System with RFID</h3><p>RFID-based tracking, inventory management, self-checkout, and drop-box check-in.</p><div class="project-tags"><span>ASP.NET Core</span><span>Angular</span><span>MySQL</span></div><div class="project-links"><a href="#" class="btn btn-glass"><span class="iconify" data-icon="mdi:github"></span> GitHub</a><a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi:open-in-new"></span> Demo</a></div></div></div>
+        <div class="glass project-card reveal from-bottom delay-2"><div class="project-image"><img src="https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=600" alt="OPAC" loading="lazy"></div><div class="project-content"><h3>Online Public Access Catalog (OPAC)</h3><p>Efficient library resource access with REST APIs and search capabilities.</p><div class="project-tags"><span>ASP.NET Core</span><span>Angular</span><span>MySQL</span></div><div class="project-links"><a href="#" class="btn btn-glass"><span class="iconify" data-icon="mdi:github"></span> GitHub</a><a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi:open-in-new"></span> Demo</a></div></div></div>
+        <div class="glass project-card reveal from-bottom delay-3"><div class="project-image"><img src="https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&w=600" alt="GST" loading="lazy"></div><div class="project-content"><h3>GST Cred Application</h3><p>Instant short-term loan platform integrated with Worldline payments.</p><div class="project-tags"><span>ASP.NET Core</span><span>Angular</span><span>MySQL</span></div><div class="project-links"><a href="#" class="btn btn-glass"><span class="iconify" data-icon="mdi:github"></span> GitHub</a><a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi:open-in-new"></span> Demo</a></div></div></div>
+        <div class="glass project-card reveal from-bottom delay-4"><div class="project-image"><img src="https://images.pexels.com/photos/1457801/pexels-photo-1457801.jpeg?auto=compress&cs=tinysrgb&w=600" alt="JevelAr" loading="lazy"></div><div class="project-content"><h3>JevelAr E-Commerce Platform</h3><p>Jewelry shopping with AR try-on, Razorpay, kiosk support, WhatsApp.</p><div class="project-tags"><span>ASP.NET Core</span><span>Angular</span><span>MySQL</span></div><div class="project-links"><a href="#" class="btn btn-glass"><span class="iconify" data-icon="mdi:github"></span> GitHub</a><a href="#" class="btn btn-primary"><span class="iconify" data-icon="mdi:open-in-new"></span> Demo</a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="section-container">
+      <div class="reveal from-left">
+        <p class="section-label"><span class="iconify" data-icon="mdi:school-outline"></span> Education & Experience</p>
+        <h2 class="section-title">My <span class="accent">Journey</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline">
+        <div class="glass timeline-item reveal from-left delay-1"><span class="timeline-date">Jan 2024 – Dec 2024</span><h3>Technify</h3><h4>Full Stack Developer</h4><ul class="timeline-achievements"><li>RFID Library Management System</li><li>OPAC Platform</li><li>GST Cred Application</li><li>JevelAr E-Commerce Platform</li></ul></div>
+        <div class="glass timeline-item reveal from-left delay-2"><span class="timeline-date">Graduated</span><h3>B.E Computer Science Engineering</h3><h4>Bachelor Degree</h4><p>Specialized in CS fundamentals, software engineering, DSA, and modern web development.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="section-container">
+      <div class="reveal from-left">
+        <p class="section-label"><span class="iconify" data-icon="mdi:email-outline"></span> Contact</p>
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal from-left delay-1">
+          <h3>Get In Touch</h3><p>Have a project in mind? Feel free to reach out.</p>
+          <div class="contact-detail"><div class="detail-icon"><span class="iconify" data-icon="mdi:email-outline"></span></div><div class="detail-text"><span>Email</span><a href="mailto:vigneshraj.dev@gmail.com">vigneshraj.dev@gmail.com</a></div></div>
+          <div class="contact-detail"><div class="detail-icon"><span class="iconify" data-icon="mdi:map-marker-outline"></span></div><div class="detail-text"><span>Location</span><a href="#">India</a></div></div>
+          <div class="contact-detail"><div class="detail-icon"><span class="iconify" data-icon="mdi:github"></span></div><div class="detail-text"><span>GitHub</span><a href="#">github.com/vigneshraj</a></div></div>
+        </div>
+        <form class="glass contact-form reveal from-right delay-2" id="contact-form">
+          <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Your full name" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" placeholder="What's this about?"></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell me about your project..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><span class="iconify" data-icon="mdi:send"></span> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left"><div class="footer-logo">G<span>VR</span></div><p>© 2026 Vignesh Raj | GVR</p></div>
+      <div class="footer-socials">
+        <a href="#"><span class="iconify" data-icon="mdi:github"></span></a>
+        <a href="#"><span class="iconify" data-icon="mdi:linkedin"></span></a>
+        <a href="mailto:vigneshraj.dev@gmail.com"><span class="iconify" data-icon="mdi:email-outline"></span></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
