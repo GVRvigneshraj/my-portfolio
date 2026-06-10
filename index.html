@@ -115,7 +115,8 @@
           <p class="home-desc reveal from-left delay-4">I am a Full Stack Developer with experience building scalable enterprise applications, REST APIs, and responsive web solutions. I specialize in Java Spring Boot, Angular, and MySQL, with additional expertise in ASP.NET technologies.</p>
           <div class="home-buttons reveal from-bottom delay-5">
             <a href="#projects" class="btn btn-primary"><span class="iconify" data-icon="mdi:rocket-launch-outline"></span> View Projects</a>
-            <a href="#" class="btn btn-glass" id="resume-btn"><span class="iconify" data-icon="mdi:download"></span> Download Resume</a>
+            <!-- REAL DOWNLOAD: Place your resume.pdf in the same folder -->
+            <a href="resume.pdf" download="Vignesh_Raj_Resume.pdf" class="btn btn-glass" id="resume-btn"><span class="iconify" data-icon="mdi:download"></span> Download Resume</a>
             <a href="#contact" class="btn btn-glass"><span class="iconify" data-icon="mdi:email-outline"></span> Contact Me</a>
           </div>
         </div>
@@ -359,59 +360,42 @@
       <!-- Personal Projects -->
       <h3 class="projects-subtitle reveal from-left delay-1"><span class="iconify" data-icon="mdi:heart-outline"></span> Personal Projects</h3>
       <div class="projects-grid">
-        
         <div class="glass project-card reveal from-bottom delay-1">
           <div class="project-image"><img src="https://www.turkeydentalclinic.com/wp-content/uploads/2024/11/dentist-turkey-antalya.jpg?auto=compress&cs=tinysrgb&w=600" alt="Dental Clinic" loading="lazy"></div>
           <div class="project-content">
             <h3>Dental Clinic Website</h3>
             <p>A modern responsive website for dental clinics to showcase services, doctors, and appointment booking.</p>
             <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Angular</span></div>
-            <div class="project-links">
-              <!-- Replace # with your actual project link -->
-              <a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a>
-            </div>
+            <div class="project-links"><a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a></div>
           </div>
         </div>
-
         <div class="glass project-card reveal from-bottom delay-2">
           <div class="project-image"><img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wedding" loading="lazy"></div>
           <div class="project-content">
             <h3>Wedding Invitation Website</h3>
             <p>An interactive digital wedding invitation with animated opening effects and elegant designs.</p>
             <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-            <div class="project-links">
-              <!-- Replace # with your actual project link -->
-              <a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a>
-            </div>
+            <div class="project-links"><a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a></div>
           </div>
         </div>
-
         <div class="glass project-card reveal from-bottom delay-3">
           <div class="project-image"><img src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Audio Lighting" loading="lazy"></div>
           <div class="project-content">
             <h3>Audio Lighting Website Template</h3>
             <p>A modern landing page template for audio and lighting businesses to showcase products.</p>
             <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-            <div class="project-links">
-              <!-- Replace # with your actual project link -->
-              <a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a>
-            </div>
+            <div class="project-links"><a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a></div>
           </div>
         </div>
-
         <div class="glass project-card reveal from-bottom delay-4">
           <div class="project-image"><img src="https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Portfolio" loading="lazy"></div>
           <div class="project-content">
             <h3>Personal Portfolio Website</h3>
             <p>A responsive portfolio with animated backgrounds, dark themes, and interactive components.</p>
             <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-            <div class="project-links">
-              <!-- Replace # with your actual project link -->
-              <a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a>
-            </div>
+            <div class="project-links"><a href="#" class="btn btn-primary" target="_blank"><span class="iconify" data-icon="mdi:open-in-new"></span> Live Demo</a></div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -433,26 +417,37 @@
           <div class="contact-detail"><div class="detail-icon"><span class="iconify" data-icon="mdi:whatsapp"></span></div><div class="detail-text"><span>WhatsApp</span><a href="https://wa.me/916383134284" target="_blank">+91 6383134284</a></div></div>
           <div class="contact-detail"><div class="detail-icon"><span class="iconify" data-icon="mdi:map-marker-outline"></span></div><div class="detail-text"><span>Location</span><a href="#">Chennai, India</a></div></div>
         </div>
-        <form class="glass contact-form reveal from-right delay-2" id="contact-form">
-          <div class="form-group"><label for="name">Name</label><input type="text" id="name" placeholder="Your full name" required></div>
-          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="your@email.com" required></div>
-          <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" placeholder="What's this about?"></div>
-          <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell me about your project..." required></textarea></div>
+        <!-- REAL FORM: Uses Web3Forms API -->
+        <form class="glass contact-form reveal from-right delay-2" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- REPLACE value with your actual Web3Forms Access Key from https://web3forms.com -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+          <input type="checkbox" name="botcheck" style="display:none">
+          
+          <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your full name" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label for="subject_input">Subject</label><input type="text" id="subject_input" name="subject_line" placeholder="What's this about?"></div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea></div>
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><span class="iconify" data-icon="mdi:send"></span> Send Message</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-left"><div class="footer-logo">G<span>VR</span></div><p>© 2026 Vignesh Raj | GVR</p></div>
-      <div class="footer-socials">
-        <a href="#"><span class="iconify" data-icon="mdi:github"></span></a>
-        <a href="#"><span class="iconify" data-icon="mdi:linkedin"></span></a>
-        <a href="https://wa.me/916383134284" target="_blank"><span class="iconify" data-icon="mdi:whatsapp"></span></a>
-        <a href="mailto:vigneshraj2091@gmail.com"><span class="iconify" data-icon="mdi:email-outline"></span></a>
+      <div class="footer-row-1">
+        <div class="footer-logo">G<span>VR</span></div>
+        <div class="footer-socials">
+          <a href="#" aria-label="GitHub"><span class="iconify" data-icon="mdi:github"></span></a>
+          <a href="#" aria-label="LinkedIn"><span class="iconify" data-icon="mdi:linkedin"></span></a>
+          <a href="https://wa.me/916383134284" target="_blank" aria-label="WhatsApp"><span class="iconify" data-icon="mdi:whatsapp"></span></a>
+          <a href="mailto:vigneshraj2091@gmail.com" aria-label="Email"><span class="iconify" data-icon="mdi:email-outline"></span></a>
+        </div>
+      </div>
+      <div class="footer-row-2">
+        <p>© 2026 Vignesh Raj | GVR</p>
       </div>
     </div>
   </footer>
