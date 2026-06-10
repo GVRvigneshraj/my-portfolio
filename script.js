@@ -197,7 +197,6 @@ function uScr() {
     if (dh > 0) document.getElementById('scroll-progress').style.width = (window.scrollY / dh * 100) + '%';
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 
-    // Scroll To Top Visibility
     if (window.scrollY > 400) scrollTopBtn.classList.add('visible'); else scrollTopBtn.classList.remove('visible');
 
     const secs = document.querySelectorAll('.section'), nls = document.querySelectorAll('.nav-links a'); let cur = '';
@@ -206,13 +205,51 @@ function uScr() {
 }
 window.addEventListener('scroll', uScr);
 
-// ===== CONTACT FORM =====
+// ===== REAL CONTACT FORM (Web3Forms API) =====
 const cf = document.getElementById('contact-form'), tt = document.getElementById('toast');
-cf.addEventListener('submit', (e) => {
+cf.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!document.getElementById('name').value.trim() || !document.getElementById('email').value.trim() || !document.getElementById('message').value.trim()) { shT('Please fill in all required fields.', false); return; }
-    const b = cf.querySelector('button[type="submit"]'); b.innerHTML = '<span class="iconify" data-icon="mdi:loading" style="animation:spin 1s linear infinite"></span> Sending...'; b.disabled = true;
-    setTimeout(() => { shT('Message sent successfully!', true); cf.reset(); b.innerHTML = '<span class="iconify" data-icon="mdi:check"></span> Sent!'; setTimeout(() => { b.innerHTML = '<span class="iconify" data-icon="mdi:send"></span> Send Message'; b.disabled = false; }, 2000); }, 1500);
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) { shT('Please fill in all required fields.', false); return; }
+
+    const b = cf.querySelector('button[type="submit"]'); 
+    b.innerHTML = '<span class="iconify" data-icon="mdi:loading" style="animation:spin 1s linear infinite"></span> Sending...'; 
+    b.disabled = true;
+
+    try {
+        const formData = new FormData(cf);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: json
+        });
+        
+        const data = await res.json();
+        
+        if (data.success) {
+            shT('Message sent successfully!', true);
+            cf.reset();
+            b.innerHTML = '<span class="iconify" data-icon="mdi:check"></span> Sent!';
+            setTimeout(() => { b.innerHTML = '<span class="iconify" data-icon="mdi:send"></span> Send Message'; b.disabled = false; }, 3000);
+        } else {
+            shT('Failed to send. Check your Access Key.', false);
+            b.innerHTML = '<span class="iconify" data-icon="mdi:send"></span> Send Message'; 
+            b.disabled = false;
+        }
+    } catch (error) {
+        shT('Network error. Please try again.', false);
+        b.innerHTML = '<span class="iconify" data-icon="mdi:send"></span> Send Message'; 
+        b.disabled = false;
+    }
 });
+
 function shT(m, ok) { tt.textContent = m; tt.style.borderColor = ok ? 'var(--accent)' : '#f87171'; tt.style.color = ok ? 'var(--accent)' : '#f87171'; tt.classList.add('show'); setTimeout(() => tt.classList.remove('show'), 3500); }
-document.getElementById('resume-btn').addEventListener('click', (e) => { e.preventDefault(); shT('Resume download will be available soon!', true); });
+
+// Note: Resume download now works natively via HTML <a download="..." href="resume.pdf">
+// No need for fake JavaScript toast for the resume.
